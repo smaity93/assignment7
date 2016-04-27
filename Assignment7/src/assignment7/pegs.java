@@ -43,10 +43,14 @@ public class pegs {
 	}
 	
 	public boolean validColor(char c){
-		//TODO determine if color input is a valid color in colors array
+		//TODO determine if peg input is a valid guess
+		if(this.colors.contains(c)==true){
+			return true;
+		}
 		
-		
-		return true;
+		else{
+		return false;
+		}
 	}
 	
 	

@@ -11,7 +11,7 @@ public class code {
 	//changes input string to type code
 	public code(String s){
 		char[] codeChar = s.toCharArray();
-		for(int i = 0; i<4; i++){
+		for(int i = 0; i<s.length(); i++){
 			this.contents.add(codeChar[i]);
 		}
 		
@@ -92,5 +92,20 @@ public class code {
 		return this;
 		
 		
+	}
+	
+	//makes sure code input is valid input
+	public boolean validCode(){
+		if(this.contents.size() != 4){
+			return false;
+		}
+		
+		for(int i=0; i<contents.size(); i++){
+			if(this.codePegs.validColor(this.contents.get(i)) == false){
+				return false;
+			}
+		}
+		
+		return true;
 	}
 }

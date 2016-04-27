@@ -40,7 +40,6 @@ public class mastermindDriver {
 		}
 		
 		
-		
 		/*Generate Secret Code*/
 		code secretCode = new code();
 		String secretString = secretCode.contents.toString();
@@ -53,16 +52,25 @@ public class mastermindDriver {
 		
 		wait = true;
 		while(wait == true){
-			
-			System.out.println("You have " + guessCount + " guesses left. Enter your next guess");
-			try {
-				s = br.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			boolean waitForGuess = false;
+			code guessCode = new code();
+			while(waitForGuess == false){
+				System.out.println("You have " + guessCount + " guesses left. Enter your next guess");
+				try {
+					s = br.readLine();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				guessCode = new code(s);
+				
+				//check if input is valid
+				waitForGuess = guessCode.validCode();
+				if(waitForGuess == false){
+					System.out.println("Incorrect input, please try again");
+				}
 			}
-			
-			code guessCode = new code(s);
 			code result = guessCode.compare(secretCode);
 			result.codePegs.printIndicatorResults();
 			
