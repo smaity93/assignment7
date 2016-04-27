@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class pegs {
 	
-	static ArrayList<Character> colors = new ArrayList<Character>();
-	static char[] indicator = new char[4];
-	public static int winStatus = 0;
+	ArrayList<Character> colors = new ArrayList<Character>();
+	char[] indicator = new char[4];
+	public int winStatus = 0;
 	
 	public pegs(){
 		colors.add('B'); colors.add('G'); colors.add('O'); colors.add('P'); colors.add('R'); colors.add('Y');
@@ -14,35 +14,35 @@ public class pegs {
 		
 	}
 	
-	public static char pickColor(int i){
-		return colors.get(i);
+	public char pickColor(int i){
+		return this.colors.get(i);
 	}
 	
-	public static void indicatorClear(){
-		indicator[0] = 'n'; indicator [1] = 'n'; indicator [2] = 'n'; indicator[3] = 'n';
+	public void indicatorClear(){
+		this.indicator[0] = 'n'; indicator [1] = 'n'; indicator [2] = 'n'; indicator[3] = 'n';
 	}
 	
-	public static void printIndicatorResults(){
+	public void printIndicatorResults(){
 		//indicator = black if right color in right place
 		//indicator = white if right color in wrong place
 		int whiteCount = 0;
 		int blackCount = 0;
 		
 		for (int i = 0; i<4; i++){
-			if (indicator[i] == 'b'){blackCount++;}
-			if (indicator[i] == 'w'){whiteCount++;}
+			if (this.indicator[i] == 'b'){blackCount++;}
+			if (this.indicator[i] == 'w'){whiteCount++;}
 		}
 		
 		System.out.println("Result: " + blackCount + " black pegs and " + whiteCount + " white pegs");
 		System.out.println("");
 		
 		if(blackCount == 4){
-			winStatus = 1;
+			this.winStatus = 1;
 		}
 		
 	}
 	
-	public static boolean validColor(char c){
+	public boolean validColor(char c){
 		//TODO determine if color input is a valid color in colors array
 		
 		

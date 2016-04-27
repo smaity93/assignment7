@@ -39,8 +39,7 @@ public class mastermindDriver {
 			}
 		}
 		
-		/*initialize board game*/
-		pegs game = new pegs();
+		
 		
 		/*Generate Secret Code*/
 		code secretCode = new code();
@@ -50,10 +49,12 @@ public class mastermindDriver {
 			//compare guess with secret code
 			//print results from indicator pegs (black or white)
 			//repeat until guess is correct or 0 guesses left
-		System.out.println("You have " + guessCount + " guesses left. Enter your next guess");
+		System.out.println("For debugging purposes, the secret code is " + secretString);
+		
 		wait = true;
 		while(wait == true){
 			
+			System.out.println("You have " + guessCount + " guesses left. Enter your next guess");
 			try {
 				s = br.readLine();
 			} catch (IOException e) {
@@ -62,13 +63,14 @@ public class mastermindDriver {
 			}
 			
 			code guessCode = new code(s);
-			code.compare(guessCode, secretCode);
-			pegs.printIndicatorResults();
+			code result = guessCode.compare(secretCode);
+			result.codePegs.printIndicatorResults();
 			
 			guessCount--;
 			
-			if(pegs.winStatus == 1){
+			if(result.codePegs.winStatus == 1){
 				System.out.println("You win");
+				System.out.println("The secret code was " + secretString);
 				wait = false;
 			}
 			else if(guessCount == 0){
