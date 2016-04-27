@@ -39,6 +39,8 @@ public class mastermindDriver {
 			}
 		}
 		
+		/*Initialize Table of Guesses*/
+		guess guessHistory = new guess();
 		
 		/*Generate Secret Code*/
 		code secretCode = new code();
@@ -66,11 +68,21 @@ public class mastermindDriver {
 				guessCode = new code(s);
 				
 				//check if input is valid
+				
 				waitForGuess = guessCode.validCode();
 				if(waitForGuess == false){
-					System.out.println("Incorrect input, please try again");
+					if(s.equals("history")){
+						guessHistory.print();
+					}
+					else{
+						System.out.println("Incorrect input, please try again");
+					}
+				}
+				else{
+					guessHistory.save(guessCode.toStr());
 				}
 			}
+			
 			code result = guessCode.compare(secretCode);
 			result.codePegs.printIndicatorResults();
 			
