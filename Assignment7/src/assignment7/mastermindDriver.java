@@ -17,6 +17,7 @@ import java.io.InputStreamReader;
 public class mastermindDriver {
 	
 	static int guessCount;
+	static int pegCount;
 
 	public static void main(String[] args){
 		
@@ -67,6 +68,7 @@ public class mastermindDriver {
 			}
 		}
 		
+		/* User decides number of guesses */
 		wait=true;	
 		if (playgame == true){
 			System.out.println("Please enter the number of guesses you'd like");
@@ -83,11 +85,33 @@ public class mastermindDriver {
 				wait = false;
 			}
 			else{
-				System.out.println("Incorrect input, please try again.");
+				System.out.println("Input must be a number, please try again.");
 		
 			}
 		}
 
+		/* User decides number of pegs */
+		wait=true;	
+		if (playgame == true){
+			System.out.println("Please enter the number of pegs you'd like");
+		}
+		while ( wait == true && playgame == true) {
+			try {
+				s = br.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (s.matches("\\d+")){
+				pegCount = Integer.parseInt(s);
+				wait = false;
+			}
+			else{
+				System.out.println("Input must be a number, please try again.");
+		
+			}
+		}
+		
 		/*Initialize Table of Guesses*/
 		guess guessHistory = new guess();
 		

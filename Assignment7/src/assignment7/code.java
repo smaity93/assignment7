@@ -13,7 +13,7 @@ package assignment7;
 import java.util.ArrayList;
 
 
-public class code {
+public class code extends mastermindDriver{
 	
 	public ArrayList<Character> contents = new ArrayList<Character>();
 	public pegs codePegs;
@@ -33,7 +33,7 @@ public class code {
 		
 		this.codePegs = new pegs();
 		
-		for(int i=0; i<4; i++){
+		for(int i=0; i<pegCount; i++){
 		 int randomNum = (int) (Math.random()*5); //between 0 and 5
 		 char color = this.codePegs.pickColor(randomNum);
 		 this.contents.add(color);
@@ -44,8 +44,8 @@ public class code {
 	
 	public String toStr(){
 		
-		char[] characters = new char[4];
-		for(int i=0; i<4; i++){
+		char[] characters = new char[pegCount];
+		for(int i=0; i<pegCount; i++){
 			characters[i] = this.contents.get(i);
 		}
 		String s = new String(characters);
@@ -70,7 +70,7 @@ public class code {
 		this.codePegs.indicatorClear();
 		
 		//if color in guess in right place in secret, indicator = black
-		for (int i = 0; i<4; i++){
+		for (int i = 0; i<pegCount; i++){
 			if(contents.get(i).equals(secret.contents.get(i))){
 				this.codePegs.indicator[i] = 'b';
 				scratch.add(i);
@@ -86,7 +86,7 @@ public class code {
 				
 		}
 		
-		for(int i = 0; i<4; i++){
+		for(int i = 0; i<pegCount; i++){
 			char currentColor = this.contents.get(i);
 			
 			if(secret2.contents.get(i) == 'x'){
@@ -106,7 +106,7 @@ public class code {
 	
 	//makes sure code input is valid input
 	public boolean validCode(){
-		if(this.contents.size() != 4){
+		if(this.contents.size() != pegCount){
 			return false;
 		}
 		
