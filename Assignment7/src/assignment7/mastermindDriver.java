@@ -19,9 +19,26 @@ public class mastermindDriver {
 	static int guessCount = 12;
 
 	public static void main(String[] args){
+		
+		boolean playgame = false;
+		
 		/*Print Out Rules*/
 		System.out.println("Rules");
+		System.out.println("Welcome to Mastermind.  Here are the rules. This is a text version of the classic board game Mastermind."
+				+ "\nThe computer will think of a secret code. The code consists of 4 colored pegs. "
+				+ "\nThe pegs may be one of six colors: blue, green, orange, purple, red, or yellow. "
+				+ "\nA color may appear more than once in the code. You try to guess what colored pegs are in the code and what order they are in.   "
+				+ "\nAfter you make a valid guess the result (feedback) will be displayed. "
+				+ "\nThe result consists of a black peg for each peg you have guessed exactly correct (color and position) in your guess.  "
+				+ "\nFor each peg in the guess that is the correct color, but is out of position, you get a white peg.  "
+				+ "\nFor each peg, which is fully incorrect, you get no feedback."
+				+ "\nOnly the first letter of the color is displayed. B for Blue, R for Red, and so forth. "
+				+ "\nWhen entering guesses you only need to enter the first character of each color as a capital letter."
+				 + "\nYou have 12 guesses to figure out the secret code or you lose the game.");
+		
+		/*Stream Input*/
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
 		
 		/*Wait for input to be ready to play*/
 		System.out.println("Ready to Play? Y/N");
@@ -38,6 +55,7 @@ public class mastermindDriver {
 			if(s.equals("Y")){
 				System.out.println("Yay, let's go!");
 				wait = false;
+				playgame = true;
 			}
 			else if (s.equals("N")){
 				System.out.println("Okay, goodbye");
@@ -60,10 +78,12 @@ public class mastermindDriver {
 			//compare guess with secret code
 			//print results from indicator pegs (black or white)
 			//repeat until guess is correct or 0 guesses left
+		if (playgame == true) {
 		System.out.println("For debugging purposes, the secret code is " + secretString);
+		}
 		
 		wait = true;
-		while(wait == true){
+		while(wait == true && playgame == true){
 			boolean waitForGuess = false;
 			code guessCode = new code();
 			while(waitForGuess == false){
