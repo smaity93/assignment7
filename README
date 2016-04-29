@@ -1,0 +1,30 @@
+Authors:  Sharmistha Maity, Sneha Vasantharao
+Version 1.1 2016-3-1
+UTEID: sm47767, sv8398
+Lab Section: Thursday 11-12:30pm, Lisa Hua
+
+Git URL: https://github.com/smaity93/assignment7.git
+
+** mastermindDriver.java - 
+	- Decides whether user wants to play game
+	- Decides number of pegs and number of guesses
+** code.java - 
+	- Main Methods:
+		toStr()
+		copy()
+		compare(code secret)
+		validCode()
+** pegs.java - 
+	- Main Methods:
+		pickColor()
+		indicatorClear()
+		printIndicatorResults()
+		validColor()
+** guess.java -
+	- saves the history of the past guesses
+	- Main Methods:
+		save(String s)
+		print()
+
+Notes:
+- The customer gets to decide number of guesses and number of pegs
