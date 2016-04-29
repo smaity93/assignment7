@@ -1,3 +1,13 @@
+/******************
+ * EE422C - Assignment 7 - Bonus
+ * @author Sharmistha Maity
+ *         EID: sm47767
+ *         Section: Thursday 11AM
+ * @author Sneha Vasantharao
+ *         EID: sv8398
+ *         Section: Thursday 11AM
+ ******************/
+
 package assignment7;
 
 import java.io.BufferedReader;
