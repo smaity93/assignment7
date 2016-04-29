@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
 
 public class mastermindDriver {
 	
-	static int guessCount = 12;
+	static int guessCount;
 
 	public static void main(String[] args){
 		
@@ -25,7 +25,7 @@ public class mastermindDriver {
 		/*Print Out Rules*/
 		System.out.println("Rules");
 		System.out.println("Welcome to Mastermind.  Here are the rules. This is a text version of the classic board game Mastermind."
-				+ "\nThe computer will think of a secret code. The code consists of 4 colored pegs. "
+				+ "\nThe computer will think of a secret code. The code consists of colored pegs. "
 				+ "\nThe pegs may be one of six colors: blue, green, orange, purple, red, or yellow. "
 				+ "\nA color may appear more than once in the code. You try to guess what colored pegs are in the code and what order they are in.   "
 				+ "\nAfter you make a valid guess the result (feedback) will be displayed. "
@@ -67,6 +67,21 @@ public class mastermindDriver {
 			}
 		}
 		
+		wait=true;	
+		if (playgame == true){
+			System.out.println("Please enter the number of guesses you'd like");
+		}
+		while ( wait == true && playgame == true) {
+			try {
+				s = br.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			guessCount = Integer.parseInt(s);
+			wait = false;
+		}
+
 		/*Initialize Table of Guesses*/
 		guess guessHistory = new guess();
 		
@@ -119,12 +134,12 @@ public class mastermindDriver {
 			guessCount--;
 			
 			if(result.codePegs.winStatus == 1){
-				System.out.println("You win");
+				System.out.println("You win!!!");
 				System.out.println("The secret code was " + secretString);
 				wait = false;
 			}
 			else if(guessCount == 0){
-				System.out.println("You have no guesses left. You lose.");
+				System.out.println("You have no guesses left. You lose :/.");
 				System.out.println("The secret code was " + secretString);
 				wait = false;
 			}
