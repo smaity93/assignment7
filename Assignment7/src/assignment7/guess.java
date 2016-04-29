@@ -26,10 +26,11 @@ public class guess {
 	
 	public void print(){
 		for(int i=0; i<this.table.size(); i++){
-			System.out.print(this.table.get(i)+" ");
+			System.out.print(this.table.get(i)+"\n");
 		}
 		
 		System.out.println("");
 	}
 	
 }
+
