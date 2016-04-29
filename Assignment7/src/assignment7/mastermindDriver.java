@@ -78,8 +78,14 @@ public class mastermindDriver {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			guessCount = Integer.parseInt(s);
-			wait = false;
+			if (s.matches("\\d+")){
+				guessCount = Integer.parseInt(s);
+				wait = false;
+			}
+			else{
+				System.out.println("Incorrect input, please try again.");
+		
+			}
 		}
 
 		/*Initialize Table of Guesses*/
